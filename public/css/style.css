@@ -1,0 +1,881 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    scroll-behavior: smooth;
+    transition: all 0.3s ease;
+    box-sizing: inherit;
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Botões */
+.button{
+	font: 1.2rem "Montserrat", sans-serif; 
+	color: #FFF;
+	background-color: #71842A;
+	padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-desative{
+	font: 1.2rem "Montserrat", sans-serif; 
+	color: #FFF;
+	background-color: #c4c4c4;
+	padding: 10px;
+    cursor: default;
+    border-radius: 5px;
+}
+
+#buttonsearch {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 40px;
+}
+
+#buttonsearch:hover {
+    cursor: pointer;
+}
+
+.botao3 {
+    padding: 7px 20px;
+    background-color: #ffffff;
+    border-width: 1px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    font: 1rem "Montserrat", sans-serif; 
+	padding: 10px;
+    border-radius: 5px;
+}
+
+.botao3:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+#logoAndMenu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+/* Títulos */
+h1{
+	font: 1.5rem "Montserrat", sans-serif; 
+	font-weight: 600;
+	margin-bottom: 16px;	
+}
+
+/* Subtítulos */
+h2{
+	font: 2rem "Montserrat", sans-serif; 
+	font-weight: 600;
+	margin-bottom: 1.2rem;
+	margin-top: 1.2rem;
+}
+
+/* Titulos dos eventos */
+h3 {
+    font: 1.5rem "Montserrat", sans-serif; 
+    font-weight: 600;
+}
+
+/* links */
+a{
+	text-decoration: none;
+	font: 1.3rem "Montserrat", sans-serif; 
+}
+
+p {
+    font: 1.3rem "Montserrat", sans-serif; 
+    color: #333333;
+}
+
+/* menu */
+#logo-menu {
+    width: 20vh;
+    padding-left: 4vh;
+}
+
+/* Navegação */
+#nav-index, #nav-event{
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .5s;
+}
+
+#nav{
+	width: 100%;
+	background-color: #f2f2f2;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#nav-index.rolagem, #nav-event.rolagem {
+    background-color: #f2f2f2;
+}
+
+#nav-index.rolagem .a-menu, #nav-event.rolagem .a-menu {
+    color: #000;
+}
+
+#nav-index.rolagem .a-menu:hover, #nav-event.rolagem .a-menu:hover {
+    color: #71842A;
+}
+
+ul {
+    list-style: none;
+}
+
+#navegacao {
+    display: flex;
+    align-items: center;
+}
+
+#navegacao input {
+    margin-bottom: 0px;
+    margin-right: 15px;
+    width: 200px;
+}
+
+#nav-index .a-menu, #nav-event .a-menu{
+	text-decoration: none;
+	font: 1.2rem "Montserrat", sans-serif; 
+	color: #fff;
+	margin-right: 40px;
+}
+
+#nav-index .a-menu:hover, #nav-event .a-menu:hover{
+	text-decoration: none;
+	font: 1.2rem "Montserrat", sans-serif; 
+	color: #71842A;
+	margin-right: 40px;
+}
+
+#nav .a-menu {
+    text-decoration: none;
+	font: 1.2rem "Montserrat", sans-serif; 
+	color: #000;
+    margin: 0vh 2vh;
+}
+
+/* botão para a página de eventos */
+#link-eventos {
+    margin-right: 40px;
+}
+
+/* botão de procurar da página de eventos */
+#buttonsearch {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 40px;
+}
+
+#buttonsearch:hover {
+    cursor: pointer;
+}
+
+#searchimg {
+   width: 4vh;
+}
+
+#input_search{
+    width: 200px;
+    height: 35px;
+    font: 0.8rem "Montserrat", sans-serif; 
+    align-items: center;
+    border-radius:  0.5vh  0vh 0vh 0.5vh;
+    margin: 0px;
+}
+
+#userimg {
+    width: 60px;
+    margin-right: 40px;
+}
+
+/* rodapé */
+footer {
+	width: 100%;
+    background-color: #D49F5D;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	margin: 0px;
+}
+
+#content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	padding: 30px;
+}
+
+#logo-rodape {
+    width: 20%;
+    display: flex;
+    align-items: center;
+	padding: 0 auto;
+}
+
+#logo-rodape img {
+    width: 15vh;
+}
+
+#logo-rodape p {
+    font: 0.6rem "Montserrat", sans-serif; 
+    font-size: medium;
+    color: white;
+}
+
+#slogan {
+    font-size: large;
+    font: 1.5rem "Montserrat", sans-serif; 
+    width: 60%;
+    text-align: center;
+    color: #ffffff;
+}
+
+#redes {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+#instagram {
+    width: 60px;
+}
+
+#youtube {
+    width: 60px;
+}
+
+#copyright p {
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+    font: 1rem "Montserrat", sans-serif; 
+    font-size: larger;
+}
+
+/*Index*/
+
+/* Banner */
+#img-banner {
+    width: 100%;
+    box-shadow: 0 10px 20px #999;
+}
+
+/* Definindo padding para todas as seções da página */
+main, #pag-noticias, #pag-pilares, #pag-historia {
+	padding: 100px;
+}
+
+/* seção de notícias do site */
+#pag-noticias {
+	background-color: #f7f9fc;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -4px;
+    box-shadow: inset 0 -10px 20px #999;
+}
+
+#texto-noticia {
+	width: 50%;
+	text-align: justify;
+    margin-left: 25px;
+}
+
+
+#foto-noticia{
+	width: 50%;
+}
+
+/* Seção quem somos */
+#pag-quemsomos{
+	background-color: #B84C32;
+	color: #FFF;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pag-quemsomos p {
+    color: #fff;
+}
+
+#txt-quemsomos{
+	width: 50%;
+}
+
+#foto-quemsomos{
+    width: 50%;
+	object-fit: cover;
+    margin-left: 25px;
+}
+
+/* Seção de Pilares */
+#pag-pilares{
+	background-color: #F8f8f8;
+    box-shadow: inset 0 10px 20px #999;
+}
+
+#pag-pilares h2{
+	text-align: center;
+}
+
+.p-pilares {
+    margin-bottom: 30px;
+}
+
+#container-pilares{
+	display: flex;
+    flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 60px 60px;
+}
+
+.img-card{
+	width: 100%;
+	height: 200px;	
+	object-fit: cover;
+}
+
+#card{
+	background-color: #B84C32;
+	width: 25%;
+	box-shadow: 0px 2px 8px;
+    transition: 0.3s;
+}
+
+#card:hover{
+    box-shadow: 0px 2px 5px;
+}
+
+#card2{
+	background-color: #D49F5D;
+	width: 25%;
+	box-shadow: 0px 2px 8px;
+    transition: 0.3s;
+}
+
+#card2:hover{
+    box-shadow: 0px 2px 5px;
+}
+
+#card3{
+	background-color: #71842A;
+	width: 25%;
+	box-shadow: 0px 2px 8px;
+    transition: 0.3s;
+}
+
+#card3:hover{
+    box-shadow: 0px 2px 5px;
+}
+
+.card-texto p {
+	color: #FFF;
+	text-align: center;
+	padding: 20px;
+}
+
+/* Seção História */
+#pag-historia{
+	background-color: #71842A;
+	color: #FFF;
+    box-shadow: 0 -10px 20px #999;
+}
+
+#pag-historia p {
+    color: #fff;
+}
+
+#pag-historia h2{
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+#texto-historia{
+	width: 55%;
+}
+
+#box-historia{
+    display: flex;
+}
+
+#container-historia {
+	width: 45%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2px;
+	padding-left: 50px;
+    align-items: center;
+}
+
+.coluna-historia {
+    margin-bottom: 2px;
+    overflow: hidden;
+}
+
+.coluna-historia img {
+    width: 100%;
+    height: 250px;
+    display: block;
+    object-fit: cover; 
+    transition: transform 0.5s;
+}
+
+.coluna-historia img:hover {
+    transform: scale(1.1); 
+}
+
+/* Seção de apoiadores */
+#pag-apoiadores{
+	background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    box-shadow: inset 0 10px 20px #999;
+}
+
+
+.foto-apoiadores{
+    max-height: 25vh;
+	max-width: 25vh;
+    height: 100%;
+    width: 100%;
+}
+
+#deligusta {
+    max-height: 50vh;
+	max-width: 50vh;
+}
+
+#greenpeace {
+    max-height: 40vh;
+	max-width: 40vh;
+}
+
+#pag-apoiadores h2{
+	text-align: center;
+	padding-bottom: 2vh;
+}
+
+#container-apoiadores{
+	display: flex;
+    align-items: center;
+	justify-content: space-evenly;
+	margin: 0 auto;
+}
+
+/* Botão flutuante Whatsapp e Instagram */
+#whatsapp-e-instagram {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: fixed;
+	bottom: 40px;
+	right: 20px;
+}
+#botao-whatsapp{
+	width: 100px;
+
+}
+#botao-instagram {
+    width: 60px;
+    border-radius: 30%;
+}
+
+/* Botão flutuante inscreva-se */
+#inscrevase {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+}
+
+#inscrevase:hover {
+    cursor: pointer;
+}
+
+#inscrevase img {
+    width: 50px;
+}
+
+/* Página do usuário */
+#flex {
+    display: flex;
+}
+
+/* Barra lateral */
+aside {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px 0px 30px;
+    background-color: #f2f2f2;
+}
+
+.navigation {
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 7px 20px;
+}
+
+.navigation:hover {
+    background-color: #cacaca;
+    cursor: pointer;
+}
+
+.navigation img {
+    width: 33px;
+    margin-right: 10px;
+}
+
+#eventoimg {
+    width: 40px;
+    margin-left: -4px;
+    margin-right: 8px;
+}
+
+#envioimg {
+    width: 40px;
+    margin-left: -4px;
+    margin-right: 8px;
+}
+
+.navigation p {
+    width: 170px;
+    text-align: left;
+    font: 1rem "Montserrat", sans-serif;
+}
+
+/* Eventos da página do usuário */
+
+/* Cards grandes */
+.destaque {
+    width: 100%;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+
+.destaque img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.descricao h2 {
+    margin-bottom: 15px;
+}
+
+.destaquepebutton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descricao button {
+    border: none;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.descricao button:hover {
+    cursor: pointer;
+}
+
+.descricao {
+    margin-top: -7px;
+    padding: 10px;
+    border-style: solid;
+    border-top: 0;
+    border-width: 1px;
+    border-color: #c4c4c4;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Cards pequenos */
+.outros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    padding-left: 0;
+}
+
+.descricao2 {
+    margin-top: -7px;
+    padding: 10px;
+}
+
+.descricao2 h3 {
+    margin-bottom: 15px;
+}
+
+.card {
+    display: flex;
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    border-radius: 5px;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.outrospebutton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outrospebutton button {
+    font: 0.9rem "Montserrat", sans-serif;
+    border: none;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Página de eventos */
+#cabecalho-eventos {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+#cabecalho-eventos div {
+    display: flex;
+    align-items: center;
+}
+
+#cabecalho-eventos input {
+    margin-bottom: 0px;
+    margin-right: 15px;
+    width: 200px;
+}
+
+#no-results {
+    display: none;
+}
+
+#floreser {
+    object-position: top;
+}
+
+.carousel img {
+    height: 700px;
+    object-fit: cover; /* Faz a imagem preencher o espaço de forma proporcional */
+  }
+
+.carousel-control-prev {
+    height: 75%;
+    align-self: center;
+}
+
+/* Página de login */
+
+/* seta para voltar para a página anterior */
+.btn-back{
+    position: absolute;
+    top: 120px;
+    left: 15px; 
+	width: 9vh;
+}
+
+
+/* Formulário */
+#pag-login {
+    padding: 50px; 
+}
+
+#pag-login h1 {
+	font: 2rem "Montserrat", sans-serif; 
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 30px;
+}
+
+#pag-login p{
+    margin-top: 10px;
+    color: #777; 
+    text-align: justify; 
+    text-indent: 20px; 
+    line-height: 30px;
+    text-align: center; 
+    padding: 10px;
+    font: 1rem "Montserrat", sans-serif;
+}
+
+/* Form */
+form{
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10vh;
+}
+
+label{
+   font: 1rem "Montserrat", sans-serif; 
+ }
+
+input{
+	font: 0.9rem "Montserrat", sans-serif; 
+    width: 100%;
+    height: 30px;
+    margin-bottom: 30px;
+    padding-left: 5px;
+    border: 1px solid #C4C4C4;
+    color: #777;
+	box-sizing: border-box;
+}
+
+
+/* Botões */
+#btn-form{
+    display: flex;
+}
+
+/*botões do cadastro*/
+#botoes-form{
+	width: 100%;
+}
+
+
+input[type="submit"]{
+    background-color: #71842A;
+    color: #FFF;
+    border: 0;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: green;
+}
+
+input[type="reset"]{
+    background-color: #B84C32;
+    color: #FFF;
+    border: 0;
+    text-align: center;
+    transition: 0.3s;
+}
+
+input[type="reset"]:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+#btn-cancelar{
+	margin-left: 10px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: green;
+}
+
+.alternative-login {
+    margin-top: 20px;
+}
+
+/* botões do google e email */
+.google-btn, .email-btn {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.google-btn {
+    padding: 0;
+}
+
+.google-btn{
+    background-color: #ffffff;
+    color: #555555;
+}
+
+.google-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.email-btn {
+    background-color: #ffffff;
+    color: #555555;
+}
+
+.email-btn:hover {
+    background-color: #f1f1f1;
+}
+
+#icon-email {
+    width: 30px;
+    vertical-align: middle;
+}
+
+#icon-google {
+    width: 40px;
+    vertical-align: middle;
+}

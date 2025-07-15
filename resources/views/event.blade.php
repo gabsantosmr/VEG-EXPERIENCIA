@@ -64,10 +64,18 @@
             <li class="card">
                 <img src="img/vegseminario.png" alt="">
                 <div class="descricao2">
+                    @foreach ($event as $events)
+                        <p>{{$events ->title}}</p>
+                    @endforeach
                     <h3>Veg Seminário</h3>
                     <div class="outrospebutton">
                         <p>24/10/2024</p>
                         <a class="button-desative">ENCERRADO</a>
+                    </div>
+                    <div>
+                        @foreach ($event as $events)
+                        <p>{{$events ->description}}</p>
+                        @endforeach
                     </div>
                 </div>
             </li>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Validation\Rules\Unique;
+use Laravel\Prompts\Key;
 
 return new class extends Migration
 {
@@ -12,11 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->string('cpf', 16) -> unique('cpf');
-            $table->timestamps(); 
+            $table->String('title');
+            $table->Text('description');
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('event');
+        Schema::dropIfExists('events');
     }
 };

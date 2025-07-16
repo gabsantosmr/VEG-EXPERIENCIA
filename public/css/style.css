@@ -109,7 +109,7 @@ p {
 
 /* menu */
 #logo-menu {
-    width: 20vh;
+    width: 30vh;
     padding-left: 4vh;
 }
 
@@ -123,7 +123,7 @@ p {
 	position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 11;
     transition: .5s;
 }
 
@@ -225,67 +225,73 @@ ul {
 }
 
 /* rodapé */
-footer {
-	width: 100%;
-    background-color: #D49F5D;
-	margin-bottom: 30px;
-	padding-bottom: 30px;
-	margin: 0px;
+/* Estilos Gerais do Footer */
+.footer {
+  background-color: #D49F5D;
+  padding: 40px 20px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
 }
 
-#content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-	padding: 30px;
+/* Container principal com Grid Layout */
+.footer-content {
+  display: grid;
+  /* Cria 3 colunas:
+     1fr (espaço flexível) | auto (tamanho do conteúdo) | 1fr (espaço flexível) */
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center; /* Alinha todos os itens verticalmente ao centro */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-#logo-rodape {
-    width: 20%;
-    display: flex;
-    align-items: center;
-	padding: 0 auto;
+/* Logo (alinhado à esquerda da sua coluna) */
+.footer-logo {
+  justify-self: start; /* Alinha o item no início (esquerda) da célula do grid */
 }
 
-#logo-rodape img {
-    width: 15vh;
+.footer-logo img {
+  max-width: 250px;
+  height: auto;
+  display: block; /* Remove espaço extra abaixo da imagem */
 }
 
-#logo-rodape p {
-    font: 0.6rem "Montserrat", sans-serif; 
-    font-size: medium;
-    color: white;
+/* Slogan (automaticamente centralizado pela grid) */
+.footer-slogan p {
+  font-size: 1.2rem;
+  margin: 0;
+  white-space: nowrap; /* Evita que o slogan quebre em duas linhas */
+  color: #fff;
 }
 
-#slogan {
-    font-size: large;
-    font: 1.5rem "Montserrat", sans-serif; 
-    width: 60%;
-    text-align: center;
-    color: #ffffff;
+/* Redes Sociais (alinhadas à direita da sua coluna) */
+.footer-social {
+  justify-self: end; /* Alinha o item no final (direita) da célula do grid */
+  display: flex; /* Mantém os ícones alinhados */
+  gap: 15px;
 }
 
-#redes {
-    width: 20%;
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
+.footer-social img {
+  width: 40px;
+  transition: transform 0.3s ease;
 }
 
-#instagram {
-    width: 60px;
+.footer-social img:hover {
+  transform: scale(1.15);
 }
 
-#youtube {
-    width: 60px;
+/* Linha e Copyright */
+hr {
+  border: 0;
+  border-top: 1px solid #fff;
+  margin: 40px auto;
+  max-width: 1200px;
 }
 
-#copyright p {
-    margin-top: 40px;
-    text-align: center;
-    color: white;
-    font: 1rem "Montserrat", sans-serif; 
-    font-size: larger;
+.footer-copy p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /*Index*/
@@ -302,163 +308,410 @@ main, #pag-noticias, #pag-pilares, #pag-historia {
 }
 
 /* seção de notícias do site */
-#pag-noticias {
-	background-color: #f7f9fc;
-	display: flex;
-    justify-content: space-between;
+/* Estilos principais da seção (mantidos) */
+/* --- SEÇÃO DE NOTÍCIAS (MODERNA) --- */
+.secao-noticias {
+    background-color: #f4f7f6; /* Um cinza bem claro e suave */
+}
+
+.container-carrossel {
+    display: flex;
     align-items: center;
-    margin-top: -4px;
-    box-shadow: inset 0 -10px 20px #999;
+    gap: 30px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-#texto-noticia {
-	width: 50%;
-	text-align: justify;
-    margin-left: 25px;
+.arrow-carrossel {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
+.arrow-carrossel:hover {
+    background-color: #e0f2f7; /* Um azul bem claro ao passar o mouse */
+    border-color: #b2ebf2;
+}
 
-#foto-noticia{
-	width: 50%;
+.arrow-carrossel img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+}
+
+.lista-wrapper-noticias {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 15px; /* Adicionando um arredondamento suave */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+}
+
+.card-list-noticias {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.4s ease-in-out;
+}
+
+.card-noticia {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Layout de duas colunas igualitárias */
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.conteudo-card-noticias {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os elementos internos */
+}
+
+.conteudo-card-noticias h3 {
+    font-size: 2.2rem;
+    color: #333; /* Cor do título mais escura */
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.conteudo-card-noticias p {
+    font-size: 1.1rem;
+    color: #555; /* Cor do texto mais suave */
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.conteudo-card-noticias .button {
+    display: inline-block;
+    background-color: #71842A;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    width: 145px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.conteudo-card-noticias .button:hover {
+    background-color: #71842A;
+}
+
+.card-noticia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0; /* Remove qualquer arredondamento individual da imagem */
+    transition: transform 0.3s ease-in-out; /* Adicionando transição na imagem */
+}
+
+.card-noticia:hover img {
+    transform: scale(1.03); /* Pequeno zoom ao passar o mouse na imagem */
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .card-noticia {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .card-noticia img {
+        height: 350px;
+        grid-row: 1; /* Imagem no topo em telas menores */
+        border-radius: 15px 15px 0 0; /* Arredondamento no topo */
+    }
+
+    .conteudo-card-noticias {
+        padding: 30px;
+        grid-row: 2; /* Conteúdo abaixo da imagem */
+        gap: 15px;
+    }
+
+    .conteudo-card-noticias h3 {
+        font-size: 1.8rem;
+    }
+
+    .conteudo-card-noticias p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-carrossel {
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .arrow-carrossel {
+        width: 40px;
+        height: 40px;
+    }
+
+    .arrow-carrossel img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .conteudo-card-noticias {
+        padding: 20px;
+    }
 }
 
 /* Seção quem somos */
 #pag-quemsomos{
 	background-color: #B84C32;
-	color: #FFF;
-	display: flex;
-    justify-content: space-between;
-    align-items: center;
+	color: #e6c1b7;
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#salada {
+    position: absolute;
+    right: 30px;
+    margin-top: 45px;
+}
+
+#pag-quemsomos h2 {
+    margin-left: 20px;
+    font-size: 2.8rem;
+}
+
+#pag-quemsomos h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: #e6c1b7; /* Cor verde da marca como destaque */
+    margin-top: 15px;
+    border-radius: 2px;
 }
 
 #pag-quemsomos p {
     color: #fff;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-#txt-quemsomos{
-	width: 50%;
+#p-destaque {
+    color: #B84C32;
+    background-color: #e6c1b7;
+    padding: 10px 20px 10px 0;
+}
+
+#p-destaque p {
+    color: #B84C32;
 }
 
 #foto-quemsomos{
-    width: 50%;
-	object-fit: cover;
-    margin-left: 25px;
+	grid-column: 2 / 3;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; 
 }
 
 /* Seção de Pilares */
-#pag-pilares{
-	background-color: #F8f8f8;
-    box-shadow: inset 0 10px 20px #999;
+/* --- SEÇÃO DE PILARES (MODERNA) --- */
+.secao-pilares {
+    background-color: #fff;
+    text-align: center;
 }
 
-#pag-pilares h2{
-	text-align: center;
+/* Container para o texto introdutório */
+.texto-intro-pilares {
+    margin: 0 auto 60px auto; /* Centraliza e adiciona espaço abaixo */
+    text-align: left;
 }
 
-.p-pilares {
-    margin-bottom: 30px;
+.texto-intro-pilares h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 25px;
+    position: relative;
 }
 
-#container-pilares{
-	display: flex;
-    flex-wrap: wrap;
-	justify-content: space-between;
-	padding: 60px 60px;
+.texto-intro-pilares h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: #D49F5D;
+    margin: 15px auto 0 auto; /* Centraliza a linha */
+    border-radius: 2px;
 }
 
-.img-card{
-	width: 100%;
-	height: 200px;	
-	object-fit: cover;
+.texto-intro-pilares p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
 }
 
-#card{
-	background-color: #B84C32;
-	width: 25%;
-	box-shadow: 0px 2px 8px;
-    transition: 0.3s;
+/* Container dos cards com Grid Layout */
+.container-pilares {
+    display: grid;
+    /* Cria colunas que se ajustam automaticamente ao tamanho da tela */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px; /* Espaçamento entre os cards */
+    width: 100%;
+    margin: 0 auto;
 }
 
-#card:hover{
-    box-shadow: 0px 2px 5px;
+/* Estilo base para TODOS os cards */
+.card-pilar {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#card2{
-	background-color: #D49F5D;
-	width: 25%;
-	box-shadow: 0px 2px 8px;
-    transition: 0.3s;
+/* Efeito de interação ao passar o mouse */
+.card-pilar:hover {
+    transform: translateY(-8px); /* Levanta o card sutilmente */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-#card2:hover{
-    box-shadow: 0px 2px 5px;
+.card-pilar .img-card {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
 }
 
-#card3{
-	background-color: #71842A;
-	width: 25%;
-	box-shadow: 0px 2px 8px;
-    transition: 0.3s;
+.card-pilar .card-texto {
+    padding: 25px 20px;
 }
 
-#card3:hover{
-    box-shadow: 0px 2px 5px;
+.card-pilar .card-texto p {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0;
 }
 
-.card-texto p {
-	color: #FFF;
-	text-align: center;
-	padding: 20px;
+/* Classes modificadoras para as cores de cada pilar */
+.card-pilar--atividade-fisica .card-texto {
+    background-color: #B84C32;
+}
+
+.card-pilar--sustentabilidade .card-texto {
+    background-color: #D49F5D;
+}
+
+.card-pilar--alimentacao .card-texto {
+    background-color: #71842A;
 }
 
 /* Seção História */
-#pag-historia{
-	background-color: #71842A;
-	color: #FFF;
-    box-shadow: 0 -10px 20px #999;
-}
-
-#pag-historia p {
-    color: #fff;
-}
-
-#pag-historia h2{
-    text-align: center;
-    margin-bottom: 5vh;
-}
-
-#texto-historia{
-	width: 55%;
-}
-
-#box-historia{
-    display: flex;
-}
-
-#container-historia {
-	width: 45%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2px;
-	padding-left: 50px;
-    align-items: center;
-}
-
-.coluna-historia {
-    margin-bottom: 2px;
+/* --- SEÇÃO DE HISTÓRIA (MODERNA) --- */
+.secao-historia {
+    background-color: #71842A; /* Fundo cinza claro para alternar com seções brancas */
     overflow: hidden;
 }
 
-.coluna-historia img {
+.box-historia {
+    display: grid;/* Duas colunas: texto com mais espaço (1.2fr) e galeria (1fr) */
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 60px; /* Espaço generoso entre o texto e as fotos */
     width: 100%;
-    height: 250px;
-    display: block;
-    object-fit: cover; 
-    transition: transform 0.5s;
+    margin: 0 auto;
 }
 
-.coluna-historia img:hover {
-    transform: scale(1.1); 
+.texto-historia h2 {
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.texto-historia h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: #B84C32; /* Cor verde da marca como destaque */
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+.texto-historia p {
+    color: #eee;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+}
+
+.texto-historia p strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Container da galeria de fotos */
+.container-historia {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Grade de 2x2 para as fotos */
+    gap: 15px; /* Espaçamento entre as fotos */
+}
+
+.container-historia img {
+    width: 100%;
+    height: 100%;
+    /* Garante que todas as imagens sejam quadrados perfeitos */
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; /* Evita que a imagem se distorça */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-historia img:hover {
+    transform: scale(1.05) rotate(2deg); /* Efeito de zoom e leve rotação */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    position: relative;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .box-historia {
+        grid-template-columns: 1fr; /* Empilha as colunas em telas menores */
+        gap: 50px;
+    }
+
+    .texto-historia h2 {
+        text-align: center;
+    }
+
+    .texto-historia h2::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .secao-historia {
+        padding: 60px 20px;
+    }
 }
 
 /* Seção de apoiadores */
@@ -466,7 +719,6 @@ main, #pag-noticias, #pag-pilares, #pag-historia {
 	background-color: #fff;
     padding-top: 30px;
     padding-bottom: 50px;
-    box-shadow: inset 0 10px 20px #999;
 }
 
 
@@ -490,6 +742,24 @@ main, #pag-noticias, #pag-pilares, #pag-historia {
 #pag-apoiadores h2{
 	text-align: center;
 	padding-bottom: 2vh;
+}
+
+#pag-apoiadores h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#pag-apoiadores h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: #B84C32;
+    margin: 15px auto 0 auto; /* Centraliza a linha */
+    border-radius: 2px;
 }
 
 #container-apoiadores{

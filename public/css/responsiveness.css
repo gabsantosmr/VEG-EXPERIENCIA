@@ -260,64 +260,16 @@
         font-size: 12px;
     }
 
-    #logo-rodape p {
-        display: none;
-    }
-}
+    .footer-content {
+    grid-template-columns: 1fr; /* Layout muda para uma única coluna */
+    justify-items: center; /* Centraliza todos os itens na coluna */
+    gap: 30px;
+  }
 
-@media screen and (max-width: 480px) {
-    /* Ajustes para telas muito pequenas */
-    body {
-        font-size: 0.9rem;
-    }
-
-    #nav-index, #nav {
-        padding: 5px;
-    }
-
-    #nav-index .a-menu, #nav .a-menu {
-        font-size: 1rem;
-        margin-right: 10px;
-    }
-
-    .destaque img, .card img {
-        height: 150px;
-    }
-
-    .outros .card {
-        max-width: calc(100% - 16px);
-    }
-
-    .foto-apoiadores, #deligusta, #greenpeace {
-        max-height: 10vh;
-        max-width: 10vh;
-    }
-
-    #container-pilares {
-        flex-direction: column;
-    }
-
-    #logo-rodape img {
-        width: 10vh;
-    }
-
-    #slogan {
-        font-size: 1.2rem;
-    }
-
-    #instagram, #youtube {
-        width: 50px;
-    }
-
-    .navigation p {
-        width: 140px;
-    }
-
-    #pag-login h1 {
-        font-size: 1.2rem;
-    }
-
-    input[type="submit"], input[type="reset"], .submit-btn {
-        width: 100%;
-    }
+  /* Reseta o alinhamento para o layout de coluna */
+  .footer-logo,
+  .footer-slogan,
+  .footer-social {
+    justify-self: center;
+  }
 }

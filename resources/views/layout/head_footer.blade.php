@@ -16,18 +16,31 @@
 	</head>
 <body>
     @yield('footer')
-    <footer>
-			<div id="content">
-				<div id="logo-rodape"><img src="img/logo-rodape.jpg" alt=""><p>VEG EXPERIENCE</p></div>
-				<h2 id="slogan">o futuro é consciente e sustentável</h2>
-				<div id="redes">
-					<a href="https://www.instagram.com/experience.veg/" target="_blank"><img id="instagram" src="img/instagram.png" alt=""></a>
-					<a href="https://www.youtube.com/@vegexperience" target="_blank"><img id="youtube" src="img/youtube.png" alt=""></a>
-				</div>
+	<footer class="footer">
+		<div class="footer-content">
+			<div class="footer-logo">
+				<img src="img/logo-veg-positiva.webp" alt="Logo da Veg Experience">
 			</div>
-			<div id="copyright">
-				<p>&copy; 2025 - VEG EXPERIÊNCIA</p>
+
+			<div class="footer-slogan">
+				<p>o futuro é consciente e sustentável</p>
 			</div>
+
+			<div class="footer-social">
+				<a href="https://www.instagram.com/experience.veg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<img src="img/instagram.png" alt="Ícone do Instagram">
+				</a>
+				<a href="https://www.youtube.com/@vegexperience" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+					<img src="img/youtube.png" alt="Ícone do YouTube">
+				</a>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="footer-copy">
+			<p>© 2024 - Veg Experience</p>
+		</div>
 	</footer>
 	<script src="js/script.js"></script>
 </body>

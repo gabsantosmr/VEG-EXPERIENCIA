@@ -8,9 +8,8 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-        public function event(){
-            $event = Event::All();
-
+    public function event(){
+        $event = Event::All();
         return view('event', ['event'=> $event]);
     }
 
@@ -20,6 +19,21 @@ class EventController extends Controller
 
     public function register(){
         return view('register');
+    }
+
+    public function create(){
+        return view('create');
+    }
+
+    public function store(Request $request){
+        $event = new Event();
+
+        $event ->title = $request->title;
+        $event ->description = $request->description;
+
+        $event ->save();
+
+        return redirect('/event');
     }
 }
 

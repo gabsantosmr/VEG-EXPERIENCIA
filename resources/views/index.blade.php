@@ -17,7 +17,7 @@
 					<li><a class="a-menu"  href="#pag-quemsomos">QUEM SOMOS</a></li>
 					<li><a class="a-menu"  href="#pag-pilares">PILARES</a></li>
 					<li><a class="a-menu"  href="#pag-historia">HISTÓRIA</a></li>
-					<li><a class="button" id="link-eventos" href="/eventos">EVENTOS</a></li>
+					<li><a class="button" id="link-eventos" href="/event">EVENTOS</a></li>
 				</ul>
 
 				<!--Menu hambúrguer-->

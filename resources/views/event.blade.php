@@ -54,113 +54,15 @@
             <li class="card">
                 <img src="img/vegseminario.png" alt="">
                 <div class="descricao2">
-                    <h3>Veg Seminário</h3>
-                    <div class="outrospebutton">
-                        <p>24/10/2024</p>
-                        <a class="button" href="https://www.sympla.com.br/evento/a-jornada-veg-pelas-pessoas/2432490?referrer=www.google.com">INSCREVA-SE</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img src="img/vegseminario.png" alt="">
-                <div class="descricao2">
                     @foreach ($event as $events)
-                        <p>{{$events ->title}}</p>
-                    @endforeach
-                    <h3>Veg Seminário</h3>
+                     <h3>{{$events ->title}}</h3>
                     <div class="outrospebutton">
-                        <p>24/10/2024</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                    <div>
-                        @foreach ($event as $events)
                         <p>{{$events ->description}}</p>
-                        @endforeach
-                    </div>
+                        <a class="button" href="https://www.sympla.com.br/evento/a-jornada-veg-pelas-pessoas/2432490?referrer=www.google.com">INSCREVA-SE</a>
+                    </div>   
+                    @endforeach
+                    
                 </div>
-            </li>
-            <li class="card">
-                <img src="img/pelosanimais.png" alt="">
-                <div class="descricao2">
-                    <h3>Veg Experience: A jornada - Pelos Animais</h3>
-                    <div class="outrospebutton">
-                        <p>21/09/2024</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img src="img/papelreciclado.jpg" alt="">
-                <div class="descricao2">
-                    <h3>Oficina de Papel Reciclado</h3>
-                    <div class="outrospebutton">
-                        <p>04/04/2024</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img src="img/pelaspessoas.jpg" alt="">
-                <div class="descricao2">
-                    <h3>Veg Experience: A jornada - Pelas Pessoas</h3>
-                    <div class="outrospebutton">
-                        <p>27/04/2024</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img src="img/meverao.jpg" alt="">
-                <div class="descricao2">
-                    <h3>Projeto MeVerão 2024</h3>
-                    <div class="outrospebutton">
-                        <p>12/2023 - 27/01/2024</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img id="floreser" src="img/flor&ser.jpg" alt="">
-                <div class="descricao2">
-                    <h3>Desfile Social Flor&Ser</h3>
-                    <div class="outrospebutton">
-                        <p>26/08/2023</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img src="img/desfilemodaconciente.jpg" alt="">
-                <div class="descricao2">
-                    <h3>Desfile de Moda Consciente</h3>
-                    <div class="outrospebutton">
-                        <p>27/05/2023</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img src="img/recriarelibertar.jpg" alt="">
-                <div class="descricao2">
-                    <h3>Oficina Recriar é Libertar</h3>
-                    <div class="outrospebutton">
-                        <p>21/05/2023</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li class="card">
-                <img src="img/desfilesocial.jpg" alt="">
-                <div class="descricao2">
-                    <h3>Desfile Social #VegBem40</h3>
-                    <div class="outrospebutton">
-                        <p>20/05/2023</p>
-                        <a class="button-desative">ENCERRADO</a>
-                    </div>
-                </div>
-            </li>
-            <li id="no-results">
-                <p>Nenhum evento encontrado</p>
             </li>
         </ul>
     </main>

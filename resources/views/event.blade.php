@@ -1,4 +1,4 @@
-@extends('layout.head_footer') 
+@extends('layout.head_footer')
 
 @section('title', 'EVENTOS')
 
@@ -11,7 +11,7 @@
             <img id="logo-menu" src="img/logo-veg.png" alt="logo da Veg Experience"/>
         </a>
 
-        <!-- Navegação -->        
+        <!-- Navegação -->
 
         <div id="navegacao">
 
@@ -41,7 +41,7 @@
             <span class="visually-hidden">Próximo</span>
         </button>
     </div>
-    
+
     <main>
         <div id="cabecalho-eventos">
             <h1>Eventos</h1>
@@ -59,17 +59,21 @@
                     <div class="outrospebutton">
                         <p>{{$events ->description}}</p>
                         <a class="button" href="https://www.sympla.com.br/evento/a-jornada-veg-pelas-pessoas/2432490?referrer=www.google.com">INSCREVA-SE</a>
-                    </div>   
+                    </div>
                     @endforeach
-                    
+
                 </div>
             </li>
         </ul>
+
+        @if (session('msg'))
+            <p class="msg">{{session('msg')}}</p>
+        @endif
     </main>
     <!-- Botão flutuante do whatsapp e instagram -->
     <div id="whatsapp-e-instagram">
 		<a href="https://api.whatsapp.com/send?phone=5561981677132" target="_blank"><img id="botao-whatsapp" src="img/botao-whatsapp.png" alt="Ícone do Whatsapp" /></a>
         <a href="https://www.instagram.com/experience.veg/" target="_blank"><img id="botao-instagram" src="img/botao-instagram.png" alt="Ícone do instagram" /></a>
     </div>
-    
+
 @endsection

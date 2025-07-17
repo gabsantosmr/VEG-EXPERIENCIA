@@ -1,4 +1,4 @@
-@extends('layout.head_footer') 
+@extends('layout.head_footer')
 
 @section('title', 'EVENTOS')
 

@@ -14,7 +14,17 @@
         <!-- Navegação -->
 
         <div id="navegacao">
-
+            <ul>
+                
+                @auth
+                    <li><a href="/event">EVENTOS</a></li>
+                    <li><a href="/dashboard">MEUS EVENTOS</a></li>
+                @endauth
+                @guest
+                    <li><a href="/login">ENTRAR</a></li>
+                    <li><a href="/register">CADASTRAR</a></li>
+                @endguest
+            </ul>
         </div>
     </nav>
 
@@ -46,25 +56,34 @@
         <div id="cabecalho-eventos">
             <h1>Eventos</h1>
             <div>
-                <input id="search" type="text" class="input-field" placeholder="PESQUISAR EVENTO">
-                <a class="button" id="buttonsearch"><img id="searchimg" src="img/search.png" alt="Icone de lupa"></a>
+                <form action="/event" method="GET">
+                    <input name="search" id="search" type="text" class="input-field" placeholder="PESQUISAR EVENTO">
+                    <button type="submit" class="button" id="buttonsearch"><img id="searchimg" src="img/search.png" alt="Icone de lupa"></button>
+                </form>
             </div>
         </div>
-        <ul class="outros" id="cards">
-            <li class="card">
-                <img src="img/vegseminario.png" alt="">
-                <div class="descricao2">
-                    @foreach ($event as $events)
-                     <h3>{{$events ->title}}</h3>
-                    <div class="outrospebutton">
-                        <p>{{$events ->description}}</p>
-                        <a class="button" href="https://www.sympla.com.br/evento/a-jornada-veg-pelas-pessoas/2432490?referrer=www.google.com">INSCREVA-SE</a>
-                    </div>
-                    @endforeach
-
+        @if (count($event) == 0)
+            <p>Não há eventos disponíveis</p>
+        @elseif ($search && count($event) == 0)
+            <h3>Busca por:{{$search}}</h3>
+            <p>Não foi possível encontrar nenhum evento com a pesquisa: {{ $search }}</p>
+        @else
+            <h3>Busca por:{{$search}}</h3>
+            <p>Próximos eventos</p>    
+        @endif
+        <div class="card-container">
+            @foreach ($event as $events)
+                <div class="card">
+                    <img src="{{ asset('img/events/' . $events->image) }}" alt="Imagem do evento">
+                    <h3>{{ strtoupper($events->title) }}</h3>
+                    <p>Data: {{date('d/m/y', strtotime($events->date_event))}}</p>
+                    <p>Data: {{date('d/m/y', strtotime($events->date_final))}}</p>
+                    <p>Local:{{$events->location}}</p>
+                    <p>Descrição:{{ $events->description }}</p>
+                    <a href="#" class="subscribe-btn">INSCREVA-SE</a>
                 </div>
-            </li>
-        </ul>
+            @endforeach
+        </div>
 
         @if (session('msg'))
             <p class="msg">{{session('msg')}}</p>

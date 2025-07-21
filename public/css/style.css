@@ -924,19 +924,29 @@ aside {
     margin-bottom: 15px;
 }
 
-.card {
+.card-container {
     display: flex;
-    flex: 1 1 calc(33.333% - 20px);
-    max-width: calc(33.333% - 20px);
-    border-radius: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.2s ease;
 }
 
 .card img {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
-    object-position: center;
-    border-radius: 5px 5px 0 0;
 }
 
 .outrospebutton {

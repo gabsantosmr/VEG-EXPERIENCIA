@@ -9,12 +9,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index');
 
-Route::get('/event', [EventController::class, 'event']);
+Route::get('/event', [EventController::class, 'event'])->name('eventos');
 
-Route::get( '/logar', [EventController::class,'login']);
-
-Route::get('/registro', [EventController::class,'register']);
 
 Route::get('/painel', [EventController::class,'create']);
 
 Route::post('/event', [EventController::class,'store']);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

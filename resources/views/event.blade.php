@@ -15,15 +15,19 @@
 
         <div id="navegacao">
             <ul>
-                
                 @auth
                     <li><a href="/event">EVENTOS</a></li>
                     <li><a href="/dashboard">MEUS EVENTOS</a></li>
-                @endauth
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="logout-button">SAIR</button>
+                    </form>
+                @endauth 
                 @guest
                     <li><a href="/login">ENTRAR</a></li>
                     <li><a href="/register">CADASTRAR</a></li>
                 @endguest
+               
             </ul>
         </div>
     </nav>

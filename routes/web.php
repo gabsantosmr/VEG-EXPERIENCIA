@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*Route::get('/', function () {
@@ -12,15 +13,17 @@ Route::view('/', 'index');
 Route::get('/event', [EventController::class, 'event'])->name('eventos');
 
 
-Route::get('/painel', [EventController::class,'create']);
+Route::get('/event/create', [EventController::class,'create'])->Middleware('auth');
 
 Route::post('/event', [EventController::class,'store']);
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
+
+Route::delete('/event/{id}', [EventController::class, 'destroy'])->Middleware('auth');
+
+Route::get('/event/edit/{id}', [EventController::class, 'edit'])->Middleware('auth');
+
+Route::put('/event/update/{id}', [EventController::class, 'update'])->Middleware('auth');
+
+
+

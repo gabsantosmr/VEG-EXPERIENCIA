@@ -15,8 +15,16 @@ class Event extends Model
         'image'
     ];
     
+    protected $garded = [];
+
     protected $dates = [
         'date_event',
         'date_final',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
 }

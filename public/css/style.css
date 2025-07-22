@@ -1325,4 +1325,10 @@ input[type="reset"]:hover {
     #event-create-container {
         padding: 20px;
     }
+
+/*Dashboard do usuário*/
+th, td {
+    padding: 10px;
+    margin-right: 30px;
+    text-align: center;
 }

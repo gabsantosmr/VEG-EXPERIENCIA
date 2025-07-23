@@ -1278,6 +1278,104 @@ aside {
     align-self: center;
 }
 
+/* --- GRID DE EVENTOS --- */
+
+.eventos-grid {
+    display: grid;
+    
+    /* A MUDANÇA PRINCIPAL ESTÁ AQUI:
+      - Trocamos 'minmax(320px, 1fr)' por um valor fixo de '340px'.
+      - Isso significa que cada coluna terá no máximo 340px, mas nunca mais que isso.
+      - 'auto-fit' ainda garante que a grade seja responsiva, mudando o número de colunas.
+    */
+    grid-template-columns: repeat(auto-fit, 340px);
+
+    /* NOVA LINHA CRUCIAL:
+      - Centraliza os cards no container. Se houver espaço sobrando na linha
+        (por exemplo, com 1 ou 2 cards), eles ficarão no meio da página.
+    */
+    justify-content: center;
+    
+    gap: 40px; /* O espaçamento continua o mesmo */
+    padding: 0;
+    list-style: none;
+}
+
+
+/* --- CARD DE EVENTO INDIVIDUAL --- */
+
+.evento-card {
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo do card na vertical */
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evento-card:hover {
+    transform: translateY(-8px); /* Efeito de "levantar" o card */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.evento-card__imagem {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Proporção da imagem (widescreen) */
+    object-fit: cover; /* Evita distorção da imagem */
+}
+
+.evento-card__conteudo {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz este container ocupar o espaço vertical restante */
+}
+
+.evento-card__conteudo h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Bloco de informações rápidas (data, local) */
+.evento-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #555;
+    border-left: 3px solid #D49F5D; /* Detalhe com a cor da marca */
+    padding-left: 15px;
+}
+
+.info-item strong {
+    color: #333;
+}
+
+/* Descrição do evento com limite de linhas */
+.evento-card__descricao {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1; /* Empurra o botão para o final do card */
+    
+    /* Truque para limitar o texto a 3 linhas e adicionar "..." */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.evento-card__conteudo .button {
+    width: 125px;
+    align-self: center;
+}
+
 /* Página de login */
 
 /* seta para voltar para a página anterior */

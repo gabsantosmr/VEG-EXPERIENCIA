@@ -8,16 +8,16 @@
     <nav id="nav-admin">
         <!-- Logo da Veg Experience localizado no menu -->
         <a href="/ ">
-            <img id="logo-menu" src="img/logo-veg-colorida.webp" alt="logo da Veg Experience"/>
+            <img id="logo-menu" src="/img/logo-veg-colorida.webp" alt="logo da Veg Experience"/>
         </a>
 
         <!-- Navegação -->
 
         <div id="navegacao">
             <ul>
-                    <li><a href="/admin">DASHBOARD</a></li>
-                    <li><a href="/events">MEUS EVENTOS</a></li>
-                    <li><a href="/news">MINHAS NOTÍCIAS</a></li>
+                    <li><a href="/dashboard">DASHBOARD</a></li>
+                    <li><a href="/dashboard">MEUS EVENTOS</a></li>
+                    <li><a href="/dashboard">MINHAS NOTÍCIAS</a></li>
             </ul>
         </div>
     </nav>

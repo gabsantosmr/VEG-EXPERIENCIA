@@ -109,9 +109,12 @@
                         
 
                         <!-- <span class="btn btn--primario">Ver Detalhes</span> -->
+                        @php
+                            $inscricaoEncerrada = strtotime($events->date_final) < strtotime(date('Y-m-d'));
+                        @endphp
                         <form action="/event/inscrever/{{$events->id}}" method="POST">
                             @csrf
-                            <button type="submit" class="button" id="event-submit">INSCREVA-SE</button>
+                            <button type="submit" class="button{{ $inscricaoEncerrada ? ' button-desative' : '' }}" id="event-submit" {{ $inscricaoEncerrada ? 'disabled' : '' }}>INSCREVA-SE</button>
                         </form>
                     </div>
                 </a>

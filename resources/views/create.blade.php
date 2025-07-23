@@ -8,7 +8,7 @@
     <nav id="nav-admin">
         <!-- Logo da Veg Experience localizado no menu -->
         <a href="/ ">
-            <img id="logo-menu" src="img/logo-veg-colorida.webp" alt="logo da Veg Experience"/>
+            <img id="logo-menu" src="/img/logo-veg-colorida.webp" alt="logo da Veg Experience"/>
         </a>
 
         <!-- Navegação -->

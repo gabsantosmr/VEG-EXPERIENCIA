@@ -21,9 +21,9 @@
         </div>
     </nav>
 
-    <main class="pagina-container">
+    <main class="pagina-create-container">
         <div id="event-create-container" class="col-md-6 offset-md-3">
-            <h1>Crie o seu eventos</h1>
+            <h1>Crie o seu evento</h1>
             <p class="subtitulo-form">Preencha as informações abaixo para adicionar um novo evento ao site.</p>
 
             <form action="/event" method="POST" enctype="multipart/form-data" class="form-moderno">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label for="location">Local:</label>
-                        <input type="text" class="form-control" id="location" name="location" placeholder="Localização do evento" />
+                        <input type="text" class="form-control" id="location" name="location" placeholder="Localização do evento" required />
                     </div>
                 </div>
                 <div class="form-group">

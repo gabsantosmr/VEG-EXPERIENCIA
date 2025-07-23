@@ -29,4 +29,6 @@ Route::post('/event/join/{id}', [EventController::class, 'joinEvent'])->Middlewa
 
 Route::post('/event/inscrever/{id}', [EventController::class, 'inscrever'])->Middleware('auth');
 
+Route::get('/eventos/{id}', [EventController::class, 'show'])->name('event.show');
+
 

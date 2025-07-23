@@ -41,7 +41,7 @@
 
 		<!-- Banner -->
 		<header id="header">
-			<img id="img-banner" src="img/banner.jpg" alt="Logo da Veg Experience no centro, escrito Veg Experience, o futuro é consciente e sustentável" />
+			<img id="img-banner" src="img/banner.svg" alt="Logo da Veg Experience no centro, escrito Veg Experience, o futuro é consciente e sustentável" />
 		</header>
 
 		<!-- Seção de notícias -->

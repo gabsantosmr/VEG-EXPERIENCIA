@@ -107,7 +107,12 @@
 
                         <p class="evento-card__descricao">{{ $events->description }}</p>
                         
-                        <span class="button">Ver Detalhes</span>
+
+                        <!-- <span class="btn btn--primario">Ver Detalhes</span> -->
+                        <form action="/event/inscrever/{{$events->id}}" method="POST">
+                            @csrf
+                            <button type="submit" class="button" id="event-submit">INSCREVA-SE</button>
+                        </form>
                     </div>
                 </a>
             @endforeach

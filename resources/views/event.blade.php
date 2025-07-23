@@ -20,7 +20,7 @@
                     <li><a class="a-menu" href="/dashboard">MEUS EVENTOS</a></li>
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="logout-button">SAIR</button>
+                        <button type="submit" class="button">SAIR</button>
                     </form>
                 @endauth 
                 @guest

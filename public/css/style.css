@@ -21,6 +21,7 @@ body {
 	padding: 10px;
     cursor: pointer;
     border-radius: 5px;
+    border: none;
 }
 
 .button-desative{
@@ -1316,6 +1317,11 @@ form{
     width: 400px;
     margin: 0 auto;
     margin-bottom: 10vh;
+}
+
+#nav-event form {
+    margin-bottom: 0px;
+    width: 140px;
 }
 
 label{

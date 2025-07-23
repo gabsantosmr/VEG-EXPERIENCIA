@@ -88,6 +88,27 @@ class EventController extends Controller
         
         return redirect('/dashboard')->with('msg', 'Evento atualizado com sucesso!');
     }
+
+    public function inscrever($id){
+        $user = Auth::user();
+        $user->eventInscribe()->attach($id);
+        $event = Event::findOrFail($id);
+
+       
+
+        
+
+        return redirect('/event')->with('msg', 'Inscrição realizada com sucesso! ' . $event->title);
+    }
+    
+    public function exitEvent($id)
+    {
+        $user = Auth::user();
+        $user->eventInscribe()->detach($id);
+        $event = Event::findOrFail($id);
+
+        return redirect('/dashboard')->with('msg', 'Você saiu do evento com sucesso!');
+    }
 }
 
 

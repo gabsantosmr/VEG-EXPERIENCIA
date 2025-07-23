@@ -226,6 +226,83 @@ class ScrollAnimator {
   }
 }
 
+/**
+ * Classe HeroCarousel
+ * Cria um carrossel de banner principal com navegação, auto-play,
+ * pausa ao passar o mouse e responsividade.
+ */
+class HeroCarousel {
+  // O construtor é chamado quando fazemos 'new HeroCarousel()'
+  constructor(selector) {
+    this.container = document.querySelector(selector);
+    // Se o container do carrossel não existir na página, o código para aqui.
+    if (!this.container) return;
+
+    // Seleciona os elementos internos do carrossel
+    this.track = this.container.querySelector('.carrossel-track');
+    this.slides = Array.from(this.track.children);
+    this.nextButton = this.container.querySelector('.carrossel-btn--next');
+    this.prevButton = this.container.querySelector('.carrossel-btn--prev');
+
+    // Lê as configurações dos atributos data-* do HTML
+    this.autoplaySpeed = parseInt(this.container.dataset.autoplaySpeed) || 5000; // 5 segundos por padrão
+
+    // Estado inicial
+    this.currentIndex = 0;
+    this.slideWidth = this.slides[0].getBoundingClientRect().width;
+    this.autoPlayInterval = null;
+
+    // Inicia os "ouvintes" de eventos
+    this._bindEvents();
+    // Inicia o carrossel
+    this.startAutoPlay();
+  }
+
+  // Move a "pista" para o slide desejado
+  moveToSlide(targetIndex) {
+    this.slideWidth = this.slides[0].getBoundingClientRect().width; // Garante que a largura está atualizada
+    this.track.style.transform = 'translateX(-' + this.slideWidth * targetIndex + 'px)';
+    this.currentIndex = targetIndex;
+  }
+
+  // Inicia o auto-play
+  startAutoPlay() {
+    this.stopAutoPlay(); // Garante que não haja múltiplos intervalos rodando
+    this.autoPlayInterval = setInterval(() => {
+      this._handleNext();
+    }, this.autoplaySpeed);
+  }
+
+  // Para o auto-play
+  stopAutoPlay() {
+    clearInterval(this.autoPlayInterval);
+  }
+
+  // Lógica para ir para o próximo slide
+  _handleNext() {
+    const nextIndex = (this.currentIndex + 1) % this.slides.length;
+    this.moveToSlide(nextIndex);
+  }
+
+  // Lógica para ir para o slide anterior
+  _handlePrev() {
+    const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+    this.moveToSlide(prevIndex);
+  }
+
+  // Vincula todos os eventos necessários
+  _bindEvents() {
+    this.nextButton.addEventListener('click', this._handleNext.bind(this));
+    this.prevButton.addEventListener('click', this._handlePrev.bind(this));
+
+    this.container.addEventListener('mouseenter', this.stopAutoPlay.bind(this));
+    this.container.addEventListener('mouseleave', this.startAutoPlay.bind(this));
+
+    // Recalcula as dimensões se a janela for redimensionada
+    window.addEventListener('resize', () => this.moveToSlide(this.currentIndex));
+  }
+}
+
 // Instanciando as classes
 const scrollHandlerIndex = new ScrollHandler('#nav-index', 'rolagem', 650);
 const scrollHandlerEvent = new ScrollHandler('#nav-event', 'rolagem', 400);
@@ -235,4 +312,6 @@ const search = new Search('search', '.outros', 'no-results');
 document.addEventListener('DOMContentLoaded', () => {
     ScrollAnimator.init();
   const carrosselDeNoticias = new Carousel_noticias('prevBtn', 'nextBtn', 'cardList');
+
+  new HeroCarousel('.carrossel-hero');
 });

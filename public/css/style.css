@@ -32,18 +32,6 @@ body {
     border-radius: 5px;
 }
 
-#buttonsearch {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    border-radius: 50%;
-    margin-right: 40px;
-}
-
-#buttonsearch:hover {
-    cursor: pointer;
-}
-
 .botao3 {
     padding: 7px 20px;
     background-color: #ffffff;
@@ -158,7 +146,7 @@ p {
     display: flex;
 }
 
-#nav-admin ul {
+#nav-admin ul, #nav-event ul {
     list-style: none;
     display: flex;
     align-items: center;
@@ -228,32 +216,6 @@ ul {
 /* botão para a página de eventos */
 #link-eventos {
     margin-right: 40px;
-}
-
-/* botão de procurar da página de eventos */
-#buttonsearch {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    border-radius: 50%;
-    margin-right: 40px;
-}
-
-#buttonsearch:hover {
-    cursor: pointer;
-}
-
-#searchimg {
-   width: 4vh;
-}
-
-#input_search{
-    width: 200px;
-    height: 35px;
-    font: 0.8rem "Montserrat", sans-serif; 
-    align-items: center;
-    border-radius:  0.5vh  0vh 0vh 0.5vh;
-    margin: 0px;
 }
 
 #userimg {
@@ -351,38 +313,93 @@ main, #pag-noticias, #pag-pilares, #pag-historia {
     background-color: #f4f7f6; /* Um cinza bem claro e suave */
 }
 
-.container-carrossel {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+/* --- CARROSSEL HERO CUSTOMIZADO --- */
+
+.carrossel-hero {
+    position: relative; /* Essencial para posicionar os botões de navegação */
     width: 100%;
-    margin: 0 auto;
+    height: 100vh; /* Altura do seu banner, ajuste conforme necessário */
 }
 
-.arrow-carrossel {
-    background-color: #fff;
-    border: 1px solid #ddd;
+.carrossel-track-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* A mágica acontece aqui: esconde os slides laterais */
+}
+
+.carrossel-track {
+    display: flex;
+    height: 100%;
+    /* A transição suave que cria o efeito de deslize */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carrossel-slide {
+    flex: 0 0 100%; /* Cada slide ocupa exatamente 100% da largura do container */
+    height: 100%;
+}
+
+.carrossel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+/* Estilo dos botões de navegação */
+.carrossel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    z-index: 10;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
-    flex-shrink: 0;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.arrow-carrossel:hover {
-    background-color: #e0f2f7; /* Um azul bem claro ao passar o mouse */
-    border-color: #b2ebf2;
+.carrossel-btn:hover {
+    background-color: #fff;
+    transform: translateY(-50%) scale(1.1);
 }
 
-.arrow-carrossel img {
-    width: 24px;
-    height: 24px;
-    opacity: 0.7;
+.carrossel-btn img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+}
+
+/* Posicionamento específico para cada botão */
+.carrossel-btn--prev {
+    left: 30px;
+}
+
+.carrossel-btn--next {
+    right: 30px;
+}
+
+/* Media Query para ajustar em telas menores */
+@media (max-width: 768px) {
+    .carrossel-hero {
+        height: 400px; /* Altura menor para celulares */
+    }
+
+    .carrossel-btn {
+        width: 40px;
+        height: 40px;
+        left: 15px;
+    }
+    .carrossel-btn--next {
+        right: 15px;
+    }
 }
 
 .lista-wrapper-noticias {
@@ -1001,21 +1018,85 @@ aside {
 }
 
 /* Página de eventos */
+/* --- CABEÇALHO DE PÁGINA E PESQUISA --- */
+
 #cabecalho-eventos {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
+    text-align: center;
+    padding: 40px 20px; /* Adapte o padding conforme necessário */
+    margin-bottom: 60px; /* Espaço até a lista de eventos */
 }
 
-#cabecalho-eventos div {
+#cabecalho-eventos h1 {
+    font-size: 2.8rem;
+    color: #333;
+    position: relative;
+    display: inline-block; /* Permite que a linha abaixo tenha o tamanho do texto */
+    margin-bottom: 15px;
+}
+
+/* Linha decorativa abaixo do título, igual à da página inicial */
+#cabecalho-eventos h1::after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 4px;
+    background-color: #71842A; /* Cor verde da marca */
+    margin: 15px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Formulário de Pesquisa com visual de "pílula" */
+.form-pesquisa {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 50px; /* Bordas totalmente arredondadas */
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.form-pesquisa:focus-within {
+    /* Efeito de destaque quando o formulário está em foco */
+    box-shadow: 0 0 0 3px rgba(113, 132, 42, 0.2);
+    border-color: #71842A;
+}
+
+.input-field {
+    flex-grow: 1;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    color: #333;
+    background: transparent;
+}
+
+.input-field:focus {
+    outline: none; /* Remove a borda azul padrão do navegador */
+}
+
+#buttonsearch {
+    background-color: #71842A;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
 }
 
-#cabecalho-eventos input {
-    margin-bottom: 0px;
-    margin-right: 15px;
-    width: 200px;
+#buttonsearch:hover {
+    background-color: #5a6a21; /* Tom mais escuro no hover */
+}
+
+#buttonsearch img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Deixa o ícone PNG branco */
 }
 
 #no-results {
@@ -1331,4 +1412,5 @@ th, td {
     padding: 10px;
     margin-right: 30px;
     text-align: center;
+}
 }

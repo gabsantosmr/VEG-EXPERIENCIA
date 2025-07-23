@@ -84,7 +84,10 @@
                     <p>Data: {{date('d/m/y', strtotime($events->date_final))}}</p>
                     <p>Local:{{$events->location}}</p>
                     <p>Descrição:{{ $events->description }}</p>
-                    <a href="#" class="subscribe-btn">INSCREVA-SE</a>
+                    <form action="/event/inscrever/{{$events->id}}" method="POST">
+    @csrf
+    <button type="submit" class="btn btn-primary" id="event-submit">INSCREVA-SE</button>
+</form>
                 </div>
             @endforeach
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
@@ -83,7 +84,16 @@ class EventController extends Controller
         
         return redirect('/dashboard')->with('msg', 'Evento atualizado com sucesso!');
     }
-}
 
+   public function inscrever($id)
+{
+    $user = auth()->user();
+    $user -> eventInscribe()->attach($id);
+
+    $event = Event::findOrFail($id);
+    return redirect('/event')->with('msg', 'Você se inscreveu no evento com sucesso!');
+    
+}
+}
 
 

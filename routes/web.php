@@ -13,7 +13,7 @@ Route::view('/', 'index');
 Route::get('/event', [EventController::class, 'event'])->name('eventos');
 
 
-Route::get('/event/create', [EventController::class,'create'])->Middleware('auth');
+Route::get('/event/create', [EventController::class,'create'])->Middleware('auth')->name('event.create');
 
 Route::post('/event', [EventController::class,'store']);
 
@@ -25,5 +25,8 @@ Route::get('/event/edit/{id}', [EventController::class, 'edit'])->Middleware('au
 
 Route::put('/event/update/{id}', [EventController::class, 'update'])->Middleware('auth');
 
+Route::post('/event/join/{id}', [EventController::class, 'joinEvent'])->Middleware('auth');
+
+Route::post('/event/inscrever/{id}', [EventController::class, 'inscrever'])->Middleware('auth');
 
 

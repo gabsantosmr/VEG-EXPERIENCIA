@@ -1,6 +1,6 @@
 @extends('layout.head_footer')
 
-@section('title', 'Editado ' . $event->title)
+@section('title', 'EDITAR EVENTO')
 
 @section('footer')
 

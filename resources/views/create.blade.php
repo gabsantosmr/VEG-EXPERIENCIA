@@ -15,9 +15,8 @@
 
         <div id="navegacao">
             <ul>
-                    <li><a href="/dashboard">DASHBOARD</a></li>
                     <li><a href="/dashboard">MEUS EVENTOS</a></li>
-                    <li><a href="/dashboard">MINHAS NOTÍCIAS</a></li>
+                    <li><a href="/event">EVENTOS</a></li>
             </ul>
         </div>
     </nav>
